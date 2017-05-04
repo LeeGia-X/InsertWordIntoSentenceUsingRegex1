@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
  * Created by User on 03.05.2017.
  */
 public class Word extends Text {
-    String wordRegex = "^\\w*";
+    String wordRegex = "^[а-яА-ЯёЁa-zA-Z0-9]+$";
 
     public Word(){
         do {

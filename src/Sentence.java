@@ -5,7 +5,7 @@ import java.util.regex.Pattern;
  * Created by User on 03.05.2017.
  */
 public class Sentence extends Text{
-    private String sentenceRegex = ".+";
+    private String sentenceRegex = "^[а-яА-ЯёЁa-zA-Z0-9,.!? ]+$";
     private StringBuffer rs = new StringBuffer();
     private String regex1 = "[\\wА-Яа-яЁё*]";
     private String regex2 = "\\b";
@@ -15,7 +15,6 @@ public class Sentence extends Text{
     public Sentence(){
         do {
             this.setText();
-            System.out.print(this.getText());
             if (this.checkText()){
                 System.out.print("Only word characters and punctuation marks are allowed. Try one more time. -> ");
             }

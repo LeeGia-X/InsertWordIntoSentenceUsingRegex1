@@ -18,6 +18,7 @@ public class Sentence extends Text{
             }
         } while(this.emptyTextCheck());
     }
+
     //set text into text field
     public void setText(){
         String str = inputText();

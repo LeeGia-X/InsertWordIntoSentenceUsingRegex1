@@ -7,7 +7,7 @@ public class Main {
         Word subWord = new Word();
         System.out.print("Insert word -> ");
         Word word = new Word();
-        sentence.searchAndInsert(subWord,word);
-        System.out.println(sentence.getResultSentence());
+        sentence.searchAndInsert(subWord,word); //search for matches in given sentence and insert the specified word
+        System.out.println(sentence.getResultSentence()); //output of result sentence
     }
 }

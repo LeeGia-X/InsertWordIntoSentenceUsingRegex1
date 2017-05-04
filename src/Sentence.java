@@ -18,14 +18,15 @@ public class Sentence extends Text{
             }
         } while(this.emptyTextCheck());
     }
-
+    //set text into text field
     public void setText(){
         String str = inputText();
-        if (str.matches(sentenceRegex)) {
+        if (str.matches(sentenceRegex)) { //checking for compliance with a given template
             this.text = str;
         }
     }
 
+    //search for matches in a string and insert the specified word
     void searchAndInsert(Word subWord, Word word){
         setPattern(subWord);
         setMatcher();
@@ -35,19 +36,23 @@ public class Sentence extends Text{
         matcher.appendTail(rs);
     }
 
+    //create and set regex
     private String collectionOfRegex(Word subword){
         String regex = regex1+subword.getText()+regex2;
         return regex;
     }
 
+    //set a pattern using the given subword
     private void setPattern(Word subWord){
         this.pattern = Pattern.compile(collectionOfRegex(subWord));
     }
 
+    //set a matcher using the pattern
     private void setMatcher(){
         this.matcher = pattern.matcher(this.getText());
     }
 
+    //return the resulting string
     StringBuffer getResultSentence(){
         return this.rs;
     }

@@ -11,13 +11,15 @@ public class Word extends Text {
         } while(this.emptyTextCheck());
     }
 
+    //set text into text field
     void setText(){
         String str = inputText();
-        if (str.matches(wordRegex)) {
+        if (str.matches(wordRegex)) { //checking for compliance with a given template
             this.text = str;
         }
     }
 
+    //get text from text field
     public String getText() {
         return this.text;
     }

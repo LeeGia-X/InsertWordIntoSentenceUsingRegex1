@@ -1,10 +1,5 @@
 import java.util.Scanner;
-import java.util.regex.Matcher;
-import java.util.regex.Pattern;
 
-/**
- * Created by User on 03.05.2017.
- */
 public abstract class Text {
     String text = "";
 
@@ -20,7 +15,7 @@ public abstract class Text {
         return this.text;
     }
 
-    boolean checkText() {
+    boolean emptyTextCheck() {
         if (this.getText().isEmpty()){
             return true;
         } else  {return false;}

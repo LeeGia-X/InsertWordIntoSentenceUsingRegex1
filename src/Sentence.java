@@ -1,13 +1,11 @@
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-/**
- * Created by User on 03.05.2017.
- */
+
 public class Sentence extends Text{
     private String sentenceRegex = "^[а-яА-ЯёЁa-zA-Z0-9,.!? ]+$";
     private StringBuffer rs = new StringBuffer();
-    private String regex1 = "[\\wА-Яа-яЁё*]";
+    private String regex1 = "[\\w*]";
     private String regex2 = "\\b";
     private Pattern pattern;
     private Matcher matcher;
@@ -15,10 +13,10 @@ public class Sentence extends Text{
     public Sentence(){
         do {
             this.setText();
-            if (this.checkText()){
+            if (this.emptyTextCheck()){
                 System.out.print("Only word characters and punctuation marks are allowed. Try one more time. -> ");
             }
-        } while(this.checkText());
+        } while(this.emptyTextCheck());
     }
 
     public void setText(){
@@ -29,7 +27,7 @@ public class Sentence extends Text{
     }
 
     void searchAndInsert(Word subWord, Word word){
-        setPatterm(subWord);
+        setPattern(subWord);
         setMatcher();
         while (matcher.find()) {
             matcher.appendReplacement(rs, matcher.group().trim()+" "+word.getText());
@@ -42,7 +40,7 @@ public class Sentence extends Text{
         return regex;
     }
 
-    private void setPatterm(Word subWord){
+    private void setPattern(Word subWord){
         this.pattern = Pattern.compile(collectionOfRegex(subWord));
     }
 
